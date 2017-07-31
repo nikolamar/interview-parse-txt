@@ -10,8 +10,6 @@ const rows = data.split("\n")
 // remove first two rows
 rows.splice(0,2)
 
-// nice regex using https://regex101.com/
-
 const result = rows.map((val, i) => {
   // extract values into groups
   const regexResult = (/(\b[A-Z][a-z]+[\s()[a-z]+]?)(\.?\d?\.?\d+)(\s?[kg]+)(\s+)(\$)(\d?.?\d+)/g).exec(val)
