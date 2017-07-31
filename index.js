@@ -21,17 +21,16 @@ const result = rows.map((val, i) => {
   const name = rxResult[1].trim()
   const unit = rxResult[3].trim().toUpperCase()
   let weight = parseFloat(rxResult[2].trim())
-  if (unit === "KG") {
-    weight *= 1000
+  if (unit === "G") {
+    weight *= 0.001
   }
-  const currency = rxResult[5]
   const price = parseFloat(rxResult[6].trim())
 
-  return  { name, weight, unit, currency, price }
+  return  { name, weight, price }
 })
 
 const sumOfWeights = result.reduce((acc, val) => acc + val.weight, 0)
 const sumOfPrices = result.reduce((acc, val) => acc + val.price, 0)
 
-console.log(`Sum of weights is ${(sumOfWeights/1000).toFixed(2)}kg and sum of prices is ${sumOfPrices.toFixed(2)}$`)
+console.log(`Sum of weights is ${(sumOfWeights).toFixed(2)}kg and sum of prices is ${sumOfPrices.toFixed(2)}$`)
 
