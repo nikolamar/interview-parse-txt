@@ -19,12 +19,14 @@ const result = rows.map((val, i) => {
 
   // take values from regex groups
   const name = rxResult[1].trim()
+  const price = parseFloat(rxResult[6].trim())
   const unit = rxResult[3].trim().toUpperCase()
   let weight = parseFloat(rxResult[2].trim())
+
+  // grams to kilograms
   if (unit === "G") {
     weight *= 0.001
   }
-  const price = parseFloat(rxResult[6].trim())
 
   return  { name, weight, price }
 })
