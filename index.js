@@ -15,17 +15,17 @@ const rx = /(\b[A-Z][a-z]+[\s()[a-z]+]?)(\.?\d?\.?\d+)(\s?[kg]+)(\s+)(\$)(\d?.?\
 
 const result = rows.map((val, i) => {
   // extract values into groups
-  const regexResult = rx.exec(val)
+  const rxResult = rx.exec(val)
 
   // take values from regex groups
-  const name = regexResult[1].trim()
-  const unit = regexResult[3].trim().toUpperCase()
-  let weight = parseFloat(regexResult[2].trim())
+  const name = rxResult[1].trim()
+  const unit = rxResult[3].trim().toUpperCase()
+  let weight = parseFloat(rxResult[2].trim())
   if (unit === "KG") {
     weight *= 1000
   }
-  const currency = regexResult[5]
-  const price = parseFloat(regexResult[6].trim())
+  const currency = rxResult[5]
+  const price = parseFloat(rxResult[6].trim())
 
   return  { name, weight, unit, currency, price }
 })
