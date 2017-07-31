@@ -5,7 +5,7 @@ const fs = require('fs')
 const data = fs.readFileSync("./data.txt", "utf8")
 
 // split file into lines
-const rows = data.split("\n")
+const rows = data.split(/\n/)
 
 // remove first two rows
 rows.splice(0,2)
