@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 
-let data = fs.readFileSync("./data.txt", "utf8")
+const data = fs.readFileSync("./data.txt", "utf8")
 
 // split file into lines
 const rows = data.split("\n")
