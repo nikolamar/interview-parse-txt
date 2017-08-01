@@ -13,7 +13,7 @@ rows.splice(0,2)
 // regex for this usecase
 const rx = /(\b[A-Z][a-z]+[\s()[a-z]+]?)(\.?\d?\.?\d+)(\s?[kg]+)(\s+)(\$)(\d?.?\d+)/
 
-const result = rows.map((val, i) => {
+const result = rows.map(val => {
   // extract values into groups
   const rxResult = rx.exec(val)
 
